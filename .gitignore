@@ -1,0 +1,12 @@
+
+.gitattributes
+.gitattributes
+*.class
+*.java
+*.txt
+*.MF
+eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/MDKExample/.location
+*.tree
+*.prefs
+*.launch
+eclipse/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
