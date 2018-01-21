@@ -1,12 +1,22 @@
-
-.gitattributes
-.gitattributes
-*.class
-*.java
-*.txt
-*.MF
-eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/MDKExample/.location
-*.tree
-*.prefs
+# eclipse
+bin
 *.launch
-eclipse/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
