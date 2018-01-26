@@ -24,7 +24,19 @@ public class ConfigHandler {
     }
     
     private void initSettings(){
+    	 config.load();
     	 
+    	 //ADD THE INIT SETTINGS
+    	 initGeneralSettings();
+    	 
+    	 if(config.hasChanged()){
+    		 config.save();
+    	 }
+    }
+    
+    private void initGeneralSettings(){
+    	//TODO
+    	
     }
     
 }
