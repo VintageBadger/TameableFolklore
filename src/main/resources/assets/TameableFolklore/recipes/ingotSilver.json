@@ -1,0 +1,15 @@
+{
+    "type": "forge:ore_shapeless",
+    
+    "result":{
+        "item": "tameablefolklore:ingotSilver"
+    },
+    "ingredients":[
+    {
+        "item": "minecraft:gold_ingot"
+    },
+    {
+        "item": "minecraft:iron_ingot"
+    }
+        ]
+}

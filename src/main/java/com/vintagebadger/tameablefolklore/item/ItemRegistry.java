@@ -15,8 +15,11 @@ import com.vintagebadger.tameablefolklore.item.items.*;
 import com.vintagebadger.tameablefolklore.config.ConfigHandler;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public final class ItemRegistry{
@@ -27,12 +30,14 @@ public final class ItemRegistry{
     
     //Items
     public static Item silvercarrotItem;
+    public static Item ingotSilver;
     
     
     public static boolean initialized = false;
     
     public static void registerItems(){
     	registerFoodItems();
+    	registerRegularItems();
     	initialized = true;
     }
     
@@ -40,12 +45,20 @@ public final class ItemRegistry{
     	silvercarrotItem = registerItemFood("silvercarrotItem", 7, 7);	
     }
     
+    public static void registerRegularItems(){
+    	ingotSilver = registerRegularItem("ingotSilver");
+    }
+    
     private static Item registerItemFood(String registryName, int amount, float saturation) {
 		final Item item = new ItemTFFood(amount, saturation);
 		allFood.add(item);
-
 		return registerItem(item, registryName);
 	}
+    
+    private static Item registerRegularItem(String registryName){
+    	final Item item = new Item();
+    	return registerItem(item, registryName);
+    }
     
     public static Item registerItem(Item item, String registryName) {
         item.setCreativeTab(TameableFolklore.modTab);
