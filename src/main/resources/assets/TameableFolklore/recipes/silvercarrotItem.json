@@ -1,0 +1,25 @@
+{
+    "type": "forge:ore_shapeless",
+    
+    "result":{
+        "item": "tameablefolklore:silvercarrotItem"
+    },
+    
+    "pattern":[
+        " S ",
+        "SCS",
+        " S "
+    ],
+    
+    "key": {
+        "C":{
+            "type": "forge:ore_dict",
+            "ore": "cropCarrot"
+        },
+        "S":{
+            "type": "forge:ore_dict",
+            "ore": "ingotSilver"
+        }
+    }
+    
+}

@@ -18,6 +18,25 @@ public class ConfigHandler {
 
     private final Configuration config;
     
+    ///////////////////////////////////////////////
+    //copied from Pam's Harvestcraft just to test if this works-- to be replaced
+    /**
+     * Defaults
+     */
+    private static final int defaultCropFoodRestore = 1;
+    private static final double defaultSaturationSmall = 0.6D;
+    private static final double defaultSaturationMeal = 1.2D;
+    private static final double defaultSaturationMeatyMeal = 1.600000023841858D;
+    private static final double defaultCropGrowthSpeed = 0.0D;
+    private static final double defaultFruitGrowthSpeed = 0.0D;
+    
+    /**
+     * Config
+     */
+    public float mealsaturation;
+    //End copied from Pam's Harvestcraft
+    ////////////////////////////////////////////////
+    
     public ConfigHandler(Configuration config){
     	this.config = config;
     	initSettings();
@@ -31,7 +50,7 @@ public class ConfigHandler {
     	 
     	 if(config.hasChanged()){
     		 config.save();
-    	 }
+    	 } 
     }
     
     private void initGeneralSettings(){

@@ -25,7 +25,8 @@ import net.minecraftforge.oredict.OreDictionary;
 public class CommonProxy{
 	
 	public void preInit(FMLPreInitializationEvent e){
-		
+		ItemRegistry.registerItems();
+		MinecraftForge.EVENT_BUS.register(new ItemRegistry());
 	}
 	
 	public void init(FMLInitializationEvent e){
@@ -35,8 +36,6 @@ public class CommonProxy{
 	public void postInit(FMLPostInitializationEvent e){
 		
 	}
-	
-	
 	
 }
 

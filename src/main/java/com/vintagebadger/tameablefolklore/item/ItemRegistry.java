@@ -5,31 +5,18 @@
 
 package com.vintagebadger.tameablefolklore.item;
 
-import static com.vintagebadger.tameablefolklore.TameableFolklore.config;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.passive.EntityChicken;
-import net.minecraft.entity.passive.EntityPig;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
+import com.vintagebadger.tameablefolklore.TameableFolklore;
+import com.vintagebadger.tameablefolklore.item.items.*;
+import com.vintagebadger.tameablefolklore.config.ConfigHandler;
+
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSeedFood;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public final class ItemRegistry{
@@ -50,7 +37,7 @@ public final class ItemRegistry{
     }
     
     public static void registerFoodItems(){
-    	silvercarrotItem = registerItemFood("silvercarrotitem", 4, config.mealsaturation);	
+    	silvercarrotItem = registerItemFood("silvercarrotItem", 7, 7);	
     }
     
     private static Item registerItemFood(String registryName, int amount, float saturation) {
@@ -72,7 +59,7 @@ public final class ItemRegistry{
     public void onItemRegistry(RegistryEvent.Register<Item> e) {
         IForgeRegistry<Item> reg = e.getRegistry();
         reg.registerAll(itemlist.toArray(new Item[0]));
-        GeneralOreRegistry.initOreRegistry();
+        //GeneralOreRegistry.initOreRegistry();
     }
     
     

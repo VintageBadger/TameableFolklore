@@ -1,7 +1,7 @@
 package com.vintagebadger.tameablefolklore;
 
 import com.vintagebadger.tameablefolklore.config.ConfigHandler;
-import com.vintagebadger.tameablefolklore.gui.GuiHandler;
+//import com.vintagebadger.tameablefolklore.gui.GuiHandler;
 import com.vintagebadger.tameablefolklore.item.ItemRegistry;
 import com.vintagebadger.tameablefolklore.proxy.CommonProxy;
 
@@ -40,18 +40,30 @@ public class TameableFolklore {
 	
 	public static ConfigHandler config;
 	
+	/*
+	 * In this method read your config file, create Blocks, 
+	 * Items, etc. and register them with the GameRegistry.
+	 */
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		config = new ConfigHandler(new Configuration(event.getSuggestedConfigurationFile()));
 		proxy.preInit(event);
-		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+		//NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 	}
 	
+	/*
+	 * In this method we can build up data structures, add 
+	 * Crafting Recipes and register new handler.
+	 */
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		proxy.init(event);
 	}
 
+	/*
+	 * Its used to communicate with other mods and adjust 
+	 * your setup based on this.
+	 */
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
