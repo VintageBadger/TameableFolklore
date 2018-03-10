@@ -57,6 +57,18 @@ dependencies {
 
 }
 
+
+repositories {
+    maven {
+        url "https://maven.mcmoddev.com/"
+    }
+}
+
+dependencies {
+    compile "net.ilexiconn:llibrary:1.7.9-1.12.2:dev"
+
+
+
 processResources {
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
@@ -73,5 +85,7 @@ processResources {
     // copy everything else except the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
+    }
+    
     }
 }

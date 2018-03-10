@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ConfigHandler {
 
-    private final Configuration config;
+    public final Configuration config;
     
     ///////////////////////////////////////////////
     //copied from Pam's Harvestcraft just to test if this works-- to be replaced
@@ -33,7 +33,11 @@ public class ConfigHandler {
     /**
      * Config
      */
-    public float mealsaturation;
+    public float mealsaturation = 1.2f;
+    public int cropfoodRestore = 1;
+    public float cropsaturationRestore = 1.2f;
+    
+    
     //End copied from Pam's Harvestcraft
     ////////////////////////////////////////////////
     

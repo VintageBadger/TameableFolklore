@@ -1,8 +1,14 @@
 package com.vintagebadger.tameablefolklore;
 
+
+import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+
 import com.vintagebadger.tameablefolklore.config.ConfigHandler;
+import com.vintagebadger.tameablefolklore.init.TFItems;
 //import com.vintagebadger.tameablefolklore.gui.GuiHandler;
-import com.vintagebadger.tameablefolklore.item.ItemRegistry;
+//import com.vintagebadger.tameablefolklore.item.ItemRegistry;
 import com.vintagebadger.tameablefolklore.proxy.CommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,23 +26,27 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, dependencies = "required-after:llibrary@[1.7.9,)")
 
 public class TameableFolklore {
 	
-	@Instance(value = Reference.MODID)
-	public static TameableFolklore instance = new TameableFolklore();
+	@Mod.Instance
+	public static TameableFolklore instance;
+	
+	//Logger for debugging
+	public static final Logger LOGGER = (Logger)LogManager.getLogger(Reference.MODID);
+	
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 	
-	public static final CreativeTabs modTab = new CreativeTabs(Reference.MODID){
+	/*public static final CreativeTabs modTab = new CreativeTabs(Reference.MODID){
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem(){
-			return new ItemStack(ItemRegistry.silvercarrotItem);
+			return new ItemStack(silvercarrotItem);
 		}
-	};
+	};*/
 	
 	public static ConfigHandler config;
 	
@@ -46,9 +56,15 @@ public class TameableFolklore {
 	 */
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		config = new ConfigHandler(new Configuration(event.getSuggestedConfigurationFile()));
+		//config = new ConfigHandler(new Configuration(event.getSuggestedConfigurationFile()));
 		proxy.preInit(event);
 		//NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
+		
+		//TFItems.init();
+		//TFItems.register();
+		
+		
+		
 	}
 	
 	/*
@@ -65,8 +81,9 @@ public class TameableFolklore {
 	 * your setup based on this.
 	 */
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event) {  
 		proxy.postInit(event);
+		
 	}
 	
 }

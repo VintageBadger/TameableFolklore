@@ -5,7 +5,7 @@ import static com.vintagebadger.tameablefolklore.TameableFolklore.config;
 import java.util.Set;
 
 import com.vintagebadger.tameablefolklore.TameableFolklore;
-import com.vintagebadger.tameablefolklore.item.ItemRegistry;
+//import com.vintagebadger.tameablefolklore.item.ItemRegistry;
 
 
 import net.minecraft.entity.Entity;
@@ -16,17 +16,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class CommonProxy{
 	
 	public void preInit(FMLPreInitializationEvent e){
-		ItemRegistry.registerItems();
-		MinecraftForge.EVENT_BUS.register(new ItemRegistry());
+		//ItemRegistry.registerItems();
+		//MinecraftForge.EVENT_BUS.register(new ItemRegistry());
 	}
 	
 	public void init(FMLInitializationEvent e){
@@ -34,6 +32,14 @@ public class CommonProxy{
 	}
 	
 	public void postInit(FMLPostInitializationEvent e){
+		
+	}
+	
+	public void serverStarting(FMLServerStartingEvent e){
+		
+	}
+	
+	public void serverStopping(FMLServerStoppingEvent e){
 		
 	}
 	

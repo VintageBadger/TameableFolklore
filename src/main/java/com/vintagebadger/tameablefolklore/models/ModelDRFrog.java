@@ -5,50 +5,54 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
+import net.ilexiconn.llibrary.LLibrary;
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelBase;
+import net.ilexiconn.llibrary.client.model.tools.AdvancedModelRenderer;
+
 
 
 /**
  * DRFrog - VintageBadger
  * Created using Tabula 7.0.0
  */
-public class ModelDRFrog extends ModelBase {
-    public ModelRenderer body;
-    public ModelRenderer armRight;
-    public ModelRenderer armLeft;
-    public ModelRenderer legRight;
-    public ModelRenderer legLeft;
-    public ModelRenderer head;
-    public ModelRenderer eyeLeft;
-    public ModelRenderer eyeRight;
+public class ModelDRFrog extends AdvancedModelBase {
+    public AdvancedModelRenderer body;
+    public AdvancedModelRenderer armRight;
+    public AdvancedModelRenderer armLeft;
+    public AdvancedModelRenderer legRight;
+    public AdvancedModelRenderer legLeft;
+    public AdvancedModelRenderer head;
+    public AdvancedModelRenderer eyeLeft;
+    public AdvancedModelRenderer eyeRight;
 
     public ModelDRFrog() {
         this.textureWidth = 64;
         this.textureHeight = 32;
-        this.eyeLeft = new ModelRenderer(this, 0, 0);
+        this.eyeLeft = new AdvancedModelRenderer(this, 0, 0);
         this.eyeLeft.setRotationPoint(-1.6F, -1.0F, -1.5F);
         this.eyeLeft.addBox(-1.0F, -1.0F, -1.0F, 2, 2, 2, 0.0F);
-        this.legRight = new ModelRenderer(this, 0, 0);
+        this.legRight = new AdvancedModelRenderer(this, 0, 0);
         this.legRight.setRotationPoint(3.0F, 1.6F, 3.4F);
         this.legRight.addBox(0.0F, -0.2F, 0.0F, 1, 1, -4, 0.0F);
         this.setRotateAngle(legRight, 0.3141592653589793F, 0.0F, 0.0F);
-        this.legLeft = new ModelRenderer(this, 0, 0);
+        this.legLeft = new AdvancedModelRenderer(this, 0, 0);
         this.legLeft.setRotationPoint(-3.1F, 1.7F, 3.2F);
         this.legLeft.addBox(-0.9F, -0.2F, 0.0F, 1, 1, -4, 0.0F);
         this.setRotateAngle(legLeft, 0.3141592653589793F, 0.0F, 0.0F);
-        this.head = new ModelRenderer(this, 0, 0);
+        this.head = new AdvancedModelRenderer(this, 0, 0);
         this.head.setRotationPoint(0.0F, -0.7F, -2.1F);
         this.head.addBox(-2.0F, -1.6F, -2.3F, 4, 3, 2, 0.0F);
-        this.body = new ModelRenderer(this, 0, 0);
+        this.body = new AdvancedModelRenderer(this, 0, 0);
         this.body.setRotationPoint(0.1F, 20.0F, 0.0F);
         this.body.addBox(-3.0F, -2.0F, -3.5F, 6, 4, 7, 0.0F);
         this.setRotateAngle(body, -0.2617993877991494F, 0.0F, 0.0F);
-        this.armRight = new ModelRenderer(this, 0, 0);
+        this.armRight = new AdvancedModelRenderer(this, 0, 0);
         this.armRight.setRotationPoint(3.0F, 0.0F, -2.5F);
         this.armRight.addBox(0.0F, 0.0F, 0.0F, 1, 4, 1, 0.0F);
-        this.armLeft = new ModelRenderer(this, 0, 0);
+        this.armLeft = new AdvancedModelRenderer(this, 0, 0);
         this.armLeft.setRotationPoint(-4.0F, 0.0F, -2.5F);
         this.armLeft.addBox(0.0F, 0.0F, 0.0F, 1, 4, 1, 0.0F);
-        this.eyeRight = new ModelRenderer(this, 0, 0);
+        this.eyeRight = new AdvancedModelRenderer(this, 0, 0);
         this.eyeRight.setRotationPoint(1.6F, -1.0F, -1.5F);
         this.eyeRight.addBox(-1.0F, -1.0F, -1.0F, 2, 2, 2, 0.0F);
         this.head.addChild(this.eyeLeft);

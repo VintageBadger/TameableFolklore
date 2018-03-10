@@ -1,8 +1,8 @@
 package com.vintagebadger.tameablefolklore.proxy;
 
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import com.vintagebadger.tameablefolklore.init.TFItems;
+
+import net.minecraftforge.fml.common.event.*;
 
 public class ClientProxy extends CommonProxy{
 	@Override
@@ -17,5 +17,19 @@ public class ClientProxy extends CommonProxy{
 	public void postInit(FMLPostInitializationEvent e){
 		super.postInit(e);
 	}
+	
+	@Override
+	public void serverStarting(FMLServerStartingEvent e){
+		super.serverStarting(e);
+	}
+	
+	@Override
+	public void serverStopping(FMLServerStoppingEvent e){
+		super.serverStopping(e);
+	}
+	//@Override
+	//public void register(){
+	//	TFItems.registerRenders();
+	//}
 
 }

@@ -2,7 +2,7 @@
     "type": "forge:ore_shapeless",
     
     "result":{
-        "item": "tameablefolklore:silvercarrotItem"
+        "item": "tameablefolklore:itemsilvercarrot"
     },
     
     "pattern":[
