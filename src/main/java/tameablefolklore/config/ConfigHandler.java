@@ -1,4 +1,4 @@
-package com.vintagebadger.tameablefolklore.config;
+package tameablefolklore.config;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.vintagebadger.tameablefolklore.TameableFolklore;
+import tameablefolklore.TameableFolklore;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;

@@ -1,4 +1,4 @@
-package com.vintagebadger.tameablefolklore.proxy;
+package tameablefolklore.proxy;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

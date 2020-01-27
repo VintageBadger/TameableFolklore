@@ -1,10 +1,10 @@
-package com.vintagebadger.tameablefolklore.proxy;
+package tameablefolklore.proxy;
 
-import static com.vintagebadger.tameablefolklore.TameableFolklore.config;
+import static tameablefolklore.TameableFolklore.config;
 
 import java.util.Set;
 
-import com.vintagebadger.tameablefolklore.TameableFolklore;
+import tameablefolklore.TameableFolklore;
 //import com.vintagebadger.tameablefolklore.item.ItemRegistry;
 
 

@@ -7,8 +7,8 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["SleepyPandas2, VintageBadger"],
-  "credits": "Thank you MatrexsVigil I referenced your code quite a bit when creating the foods.",
+  "authorList": ["VintageBadger"],
+  "credits": "Thank you Forge!",
   "logoFile": "assets/TameableFolklore/textures/gui/templogo.jpg",
   "screenshots": [],
   "dependencies": []

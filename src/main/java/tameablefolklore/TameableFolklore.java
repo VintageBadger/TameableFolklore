@@ -1,15 +1,10 @@
-package com.vintagebadger.tameablefolklore;
+package tameablefolklore;
 
 
-import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
 
-import com.vintagebadger.tameablefolklore.config.ConfigHandler;
-import com.vintagebadger.tameablefolklore.init.TFItems;
-//import com.vintagebadger.tameablefolklore.gui.GuiHandler;
-//import com.vintagebadger.tameablefolklore.item.ItemRegistry;
-import com.vintagebadger.tameablefolklore.proxy.CommonProxy;
+import tameablefolklore.config.ConfigHandler;
+import tameablefolklore.init.TFItems;
+import tameablefolklore.proxy.CommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -25,6 +20,9 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, dependencies = "required-after:llibrary@[1.7.9,)")
 

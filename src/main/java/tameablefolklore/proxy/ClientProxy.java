@@ -1,6 +1,6 @@
-package com.vintagebadger.tameablefolklore.proxy;
+package tameablefolklore.proxy;
 
-import com.vintagebadger.tameablefolklore.init.TFItems;
+import tameablefolklore.init.TFItems;
 
 import net.minecraftforge.fml.common.event.*;
 

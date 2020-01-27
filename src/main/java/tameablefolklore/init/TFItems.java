@@ -1,6 +1,6 @@
-package com.vintagebadger.tameablefolklore.init;
+package tameablefolklore.init;
 
-import com.vintagebadger.tameablefolklore.item.ItemSilverCarrot;
+import tameablefolklore.item.ItemSilverCarrot;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
