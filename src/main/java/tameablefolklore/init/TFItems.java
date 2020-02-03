@@ -1,16 +1,8 @@
 package tameablefolklore.init;
 
-import tameablefolklore.item.ItemSilverCarrot;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.EntityEquipmentSlot;
+import tameablefolklore.TameableFolklore;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.registries.*;
 
 public class TFItems {
 	public static Item silver_carrot;
