@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "tameablefolklore:item/charlie_spawn_egg",
+        "layer1": "tameablefolklore:item/charlie_spawn_egg_overlay"
+    }
+}

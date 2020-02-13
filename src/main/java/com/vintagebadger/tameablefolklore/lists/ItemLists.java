@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 
 public class ItemLists {
 
-	public static Item tutorial_item;
+	public static Item charlie_spawn_egg;
 	
 	
 }

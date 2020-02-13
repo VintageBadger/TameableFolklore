@@ -91,7 +91,8 @@ public class TameableFolklore
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
             // register a new Item here
     		event.getRegistry().registerAll(
-    				ItemLists.tutorial_item = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MODID, "tutorial_item"))
+    				ItemLists.charlie_spawn_egg = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MODID, "charlie_spawn_egg"))
+    				//ItemLists.tutorial_item = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MODID, "tutorial_item"))
     		);
             LOGGER.info("HELLO from Register Items");
         }

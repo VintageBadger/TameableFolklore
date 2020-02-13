@@ -1,7 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "tameablefolklore:item/tutorial_item",
-        "layer1": "tameablefolklore:item/tutorial_item_overlay"
-    }
-}
