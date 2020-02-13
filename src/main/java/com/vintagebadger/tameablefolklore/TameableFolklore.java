@@ -19,7 +19,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.vintagebadger.tameablefolklore.lists.ItemLists;
+import com.vintagebadger.tameablefolklore.lists.ItemList;
 
 import java.util.stream.Collectors;
 
@@ -30,6 +30,7 @@ public class TameableFolklore
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MODID = "tameablefolklore";
+    public static final ItemGroup tameablefolklore = new TFItemGroup();
 
     public TameableFolklore() {
         // Register the setup method for modloading
@@ -91,11 +92,18 @@ public class TameableFolklore
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
             // register a new Item here
     		event.getRegistry().registerAll(
-    				ItemLists.charlie_spawn_egg = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MODID, "charlie_spawn_egg"))
-    				//ItemLists.tutorial_item = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MODID, "tutorial_item"))
+    				ItemList.charlie_spawn_egg = new Item(new Item.Properties().group(tameablefolklore)).setRegistryName(location("charlie_spawn_egg"))
     		);
             LOGGER.info("HELLO from Register Items");
         }
+    	
+    	/***
+    	 * Cleans up the item registry listings
+    	 * Associates items with the mod name
+    	 */
+    	private static ResourceLocation location(String name) {
+    		return new ResourceLocation(MODID, name);
+    	}
     }
 }
 
