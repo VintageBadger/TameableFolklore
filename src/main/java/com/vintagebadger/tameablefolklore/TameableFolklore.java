@@ -2,6 +2,9 @@ package com.vintagebadger.tameablefolklore;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,6 +19,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.vintagebadger.tameablefolklore.lists.ItemLists;
+
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -24,6 +29,7 @@ public class TameableFolklore
 {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final String MODID = "tameablefolklore";
 
     public TameableFolklore() {
         // Register the setup method for modloading
@@ -75,10 +81,39 @@ public class TameableFolklore
     // Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
-            LOGGER.info("HELLO from Register Block");
+		/*
+		 * public static void onBlocksRegistry(final RegistryEvent.Register<Block>
+		 * blockRegistryEvent) { // register a new block here
+		 * LOGGER.info("HELLO from Register Block"); }
+		 */
+    	
+    	@SubscribeEvent
+        public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
+            // register a new Item here
+    		event.getRegistry().registerAll(
+    				ItemLists.tutorial_item = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(new ResourceLocation(MODID, "tutorial_item"))
+    		);
+            LOGGER.info("HELLO from Register Items");
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
