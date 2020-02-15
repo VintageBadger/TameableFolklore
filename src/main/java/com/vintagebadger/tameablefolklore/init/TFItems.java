@@ -1,10 +1,9 @@
-package com.vintagebadger.tameablefolklore.lists;
+package com.vintagebadger.tameablefolklore.init;
 
 import net.minecraft.item.Item;
 
-public class ItemList {
+public class TFItems {
 
 	public static Item charlie_spawn_egg;
-	
 	
 }

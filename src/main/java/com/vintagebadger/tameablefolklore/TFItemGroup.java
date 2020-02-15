@@ -1,6 +1,6 @@
 package com.vintagebadger.tameablefolklore;
 
-import com.vintagebadger.tameablefolklore.lists.ItemList;
+import com.vintagebadger.tameablefolklore.init.TFItems;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -13,7 +13,7 @@ public class TFItemGroup extends ItemGroup {
 
 	@Override
 	public ItemStack createIcon() {
-		return new ItemStack(ItemList.charlie_spawn_egg);
+		return new ItemStack(TFItems.charlie_spawn_egg);
 	}
 
 }
