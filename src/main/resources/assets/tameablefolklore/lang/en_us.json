@@ -1,4 +1,6 @@
 {
 	"item.tameablefolklore.charlie_spawn_egg": "Charlie Spawn Egg",
-	"itemGroup.tameablefolklore": "Tameable Folklore"
+	"item.tameablefolklore.treat_item": "Treat",
+	"itemGroup.tameablefolklore": "Tameable Folklore",
+	"entity.tameablefolklore.charlie_entity": "Charlie"
 }

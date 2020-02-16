@@ -10,6 +10,6 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 @OnlyIn(Dist.CLIENT)
 public class TFRenderRegistry {
 	public static void registerEntityRenders() {
-		RenderingRegistry.registerEntityRenderingHandler(CharlieEntity.class, new CharlieEntityRender.RenderFactory());
+		RenderingRegistry.registerEntityRenderingHandler(TFEntities.CHARLIE_ENTITY.get(), CharlieEntityRender::new);
 	}
 }

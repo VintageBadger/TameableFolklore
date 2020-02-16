@@ -9,6 +9,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 @OnlyIn(Dist.CLIENT)
-public class CharlieEntityModel extends CowModel<CharlieEntity> {
+public class CharlieEntityModel extends CatModel<CharlieEntity> {
+
+	public CharlieEntityModel(float p_i51069_1_) {
+		super(p_i51069_1_);
+	}
 
 }

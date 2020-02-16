@@ -1,6 +1,7 @@
 package com.vintagebadger.tameablefolklore.client.render;
 
 import com.vintagebadger.tameablefolklore.TFRegistries;
+import com.vintagebadger.tameablefolklore.TameableFolklore;
 import com.vintagebadger.tameablefolklore.client.models.CharlieEntityModel;
 import com.vintagebadger.tameablefolklore.entities.CharlieEntity;
 
@@ -13,12 +14,12 @@ import net.minecraftforge.fml.client.registry.IRenderFactory;
 public class CharlieEntityRender extends LivingRenderer<CharlieEntity, CharlieEntityModel>{
 
 	public CharlieEntityRender(EntityRendererManager manager) {
-		super(manager, new CharlieEntityModel(), 0f);
+		super(manager, new CharlieEntityModel(0), 0f);
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(CharlieEntity entity) {
-		return TFRegistries.location("textures/entity/charlie_entity.png");
+		return new ResourceLocation(TameableFolklore.MODID,"textures/entity/charlie_entity.png");
 	}
 
 	

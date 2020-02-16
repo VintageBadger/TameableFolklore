@@ -37,12 +37,11 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.SoundEvent;
 
-public class CharlieEntity extends CreatureEntity{
+public class CharlieEntity extends CatEntity{
 	private static final Ingredient BREEDING_ITEMS = Ingredient.fromItems(Items.COD, Items.SALMON);
 	private static final DataParameter<Integer> COLLAR_COLOR = EntityDataManager.createKey(CatEntity.class, DataSerializers.VARINT);
 
-	@SuppressWarnings("unchecked")
-	public CharlieEntity(final EntityType<? extends CreatureEntity> type, World worldIn) 
+	public CharlieEntity(final EntityType<? extends CatEntity> type, World worldIn) 
 	{
 		super(type, worldIn);
 	}
