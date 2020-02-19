@@ -9,12 +9,14 @@ import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.BegGoal;
 import net.minecraft.entity.ai.goal.BreedGoal;
 import net.minecraft.entity.ai.goal.CatLieOnBedGoal;
 import net.minecraft.entity.ai.goal.FollowOwnerGoal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
+import net.minecraft.entity.ai.goal.LandOnOwnersShoulderGoal;
 import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -29,12 +31,17 @@ import net.minecraft.entity.ai.goal.SitGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.monster.AbstractSkeletonEntity;
+import net.minecraft.entity.monster.CreeperEntity;
+import net.minecraft.entity.monster.GhastEntity;
+import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.SlimeEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.entity.passive.WolfEntity;
+import net.minecraft.entity.passive.horse.AbstractHorseEntity;
 import net.minecraft.entity.passive.horse.LlamaEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeColor;
@@ -60,11 +67,19 @@ public class CharlieEntity extends CatEntity{
 	      EntityType<?> entitytype = p_213440_0_.getType();
 	      return entitytype == EntityType.SHEEP || entitytype == EntityType.RABBIT || entitytype == EntityType.FOX;
 	   };
-
+	public static final Predicate<LivingEntity> mobList = (anything) -> {
+		EntityType<?> entitytype = anything.getType();
+		TameableEntity tamedthing = null;
+		if (anything instanceof TameableEntity) {
+			tamedthing = (TameableEntity) anything;
+		}
+	    return entitytype instanceof IMob && tamedthing != null && !tamedthing.isTamed();
+	};
+	
 	public CharlieEntity(final EntityType<? extends CatEntity> type, World worldIn) 
 	{
 		super(type, worldIn);
-		this.setTamed(true);
+		this.setTamed(false);
 	}
 
 	@Override
@@ -73,6 +88,7 @@ public class CharlieEntity extends CatEntity{
 		this.sitGoal = new SitGoal(this);
 		this.goalSelector.addGoal(1, new SwimGoal(this));
 		this.goalSelector.addGoal(2, this.sitGoal);
+		//this.goalSelector.addGoal(3, new LandOnOwnersShoulderGoal(this));
 		this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
 		this.goalSelector.addGoal(5, new MeleeAttackGoal(this, 1.0D, true));
 		this.goalSelector.addGoal(6, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
@@ -84,17 +100,9 @@ public class CharlieEntity extends CatEntity{
 		this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
 		this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setCallsForHelp());
 		this.targetSelector.addGoal(4, new NonTamedTargetGoal<>(this, AnimalEntity.class, false, field_213441_bD));
-		this.targetSelector.addGoal(4, new NonTamedTargetGoal<>(this, TurtleEntity.class, false, TurtleEntity.TARGET_DRY_BABY));
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, AbstractSkeletonEntity.class, false));
-		/*
-		 * this.sitGoal = new SitGoal(this); this.goalSelector.addGoal(0, new
-		 * SwimGoal(this)); this.goalSelector.addGoal(1, this.sitGoal);
-		 * this.goalSelector.addGoal(2, new LookRandomlyGoal(this));
-		 * this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.0D, 10.0F, 5.0F,
-		 * false)); //entity, followSpeed, minDistance, maxDistance, false?
-		 * this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this,
-		 * AbstractSkeletonEntity.class, false));
-		 */
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, SlimeEntity.class, false));
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, CreeperEntity.class, false));
+		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, MobEntity.class, 1, false, false, mobList));
 
 	}
 
@@ -114,16 +122,32 @@ public class CharlieEntity extends CatEntity{
 	public void setTamed(boolean tamed) {
 		super.setTamed(tamed);
 		if (tamed) {
-			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
+			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(40.0D);
 			this.setHealth(20.0F);
 		} else {
 			this.getAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(8.0D);
 		}
 
-		this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
+		this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(16.0D);
 	}
+	protected void setupTamedAI() {}
 
-
+	public boolean shouldAttackEntity(LivingEntity target, LivingEntity owner) {
+	      if (!(target instanceof CreeperEntity) && !(target instanceof GhastEntity)) {
+	         if (target instanceof WolfEntity) {
+	            WolfEntity wolfentity = (WolfEntity)target;
+	            return !wolfentity.isTamed() || wolfentity.getOwner() != owner;
+	         } else if (target instanceof PlayerEntity && owner instanceof PlayerEntity && !((PlayerEntity)owner).canAttackPlayer((PlayerEntity)target)) {
+	            return false;
+	         } else if (target instanceof AbstractHorseEntity && ((AbstractHorseEntity)target).isTame()) {
+	            return false;
+	         } else {
+	            return !(target instanceof TameableEntity) || !((TameableEntity)target).isTamed();
+	         }
+	      } else {
+	         return false;
+	      }
+	   }
 
 
 
